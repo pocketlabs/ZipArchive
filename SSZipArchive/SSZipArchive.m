@@ -773,6 +773,20 @@ BOOL _fileIsSymbolicLink(const unz_file_info *fileInfo);
     return success;
 }
 
++ (BOOL)createZipFileAtPath:(NSString *)path withFilesFromMemory:(NSDictionary<NSString *, NSData *> *)buffers withPassword:(NSString *)password
+{
+    SSZipArchive *zipArchive = [[SSZipArchive alloc] initWithPath:path];
+    BOOL success = [zipArchive open];
+    if (success) {
+        for (NSString *filePath in buffers) {
+            NSData* data = buffers[filePath];
+            success &= [zipArchive writeData:data filename:filePath withPassword:password];
+        }
+        success &= [zipArchive close];
+    }
+    return success;
+}
+
 + (BOOL)createZipFileAtPath:(NSString *)path withContentsOfDirectory:(NSString *)directoryPath withPassword:(nullable NSString *)password {
     return [SSZipArchive createZipFileAtPath:path withContentsOfDirectory:directoryPath keepParentDirectory:NO withPassword:password];
 }
