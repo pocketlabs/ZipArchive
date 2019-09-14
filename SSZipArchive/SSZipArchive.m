@@ -773,7 +773,7 @@ BOOL _fileIsSymbolicLink(const unz_file_info *fileInfo);
     return success;
 }
 
-+ (BOOL)createZipFileAtPath:(NSString *)path withFilesFromMemory:(NSDictionary<NSString *, NSData *> *)buffers withPassword:(NSString *)password
++ (BOOL)createZipFileAtPath:(NSString *)path withFilesFromMemory:(NSDictionary<NSString *, NSData *> *)buffers withPassword:(nullable NSString *)password
 {
     SSZipArchive *zipArchive = [[SSZipArchive alloc] initWithPath:path];
     BOOL success = [zipArchive open];

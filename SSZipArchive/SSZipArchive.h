@@ -96,7 +96,7 @@ typedef NS_ENUM(NSInteger, SSZipArchiveErrorCode) {
 // with optional password, default encryption is AES
 // don't use AES if you need compatibility with native macOS unzip and Archive Utility
 + (BOOL)createZipFileAtPath:(NSString *)path withFilesAtPaths:(NSArray<NSString *> *)paths withPassword:(nullable NSString *)password;
-+ (BOOL)createZipFileAtPath:(NSString *)path withFilesFromMemory:(NSDictionary<NSString *, NSData *> *)buffers withPassword:(NSString *)password;
++ (BOOL)createZipFileAtPath:(NSString *)path withFilesFromMemory:(NSDictionary<NSString *, NSData *> *)buffers withPassword:(nullable NSString *)password;
 + (BOOL)createZipFileAtPath:(NSString *)path withContentsOfDirectory:(NSString *)directoryPath withPassword:(nullable NSString *)password;
 + (BOOL)createZipFileAtPath:(NSString *)path withContentsOfDirectory:(NSString *)directoryPath keepParentDirectory:(BOOL)keepParentDirectory withPassword:(nullable NSString *)password;
 + (BOOL)createZipFileAtPath:(NSString *)path
